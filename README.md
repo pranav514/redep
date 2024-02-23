@@ -20,7 +20,7 @@ cd redep upload service
 npm install
 ```
 ### 3. Set Up Cloudflare Account and R2 Bucket
-nsure you have a Cloudflare account. Create an R2 bucket for storing your deployment files. Initially, there will be no charges. Copy the access ID, endpoint, and required credentials.
+ensure you have a Cloudflare account. Create an R2 bucket for storing your deployment files. Initially, there will be no charges. Copy the access ID, endpoint, and required credentials.
 
 ### 4 .Run the Project locally
 
