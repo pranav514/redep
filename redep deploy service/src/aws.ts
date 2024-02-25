@@ -1,6 +1,8 @@
 import { S3 } from "aws-sdk";
 import fs from "fs";
 import path from "path";
+import { normalizePath } from "./utils";
+
 
 const s3 = new S3({
     accessKeyId: "",
@@ -8,7 +10,6 @@ const s3 = new S3({
     endpoint:""
 })
 
-// output/asdasd
 export async function downloadS3Folder(prefix: string) {
     const allFiles = await s3.listObjectsV2({
         Bucket: "deployment",
@@ -46,7 +47,8 @@ export function copyFinalDist(id: string) {
     const folderPath = path.join(__dirname, `output/${id}/dist`);
     const allFiles = getAllFiles(folderPath);
     allFiles.forEach(file => {
-        uploadFile(`dist/${id}/` + file.slice(folderPath.length + 1), file);
+        const filePath = normalizePath(file);
+        uploadFile(`dist/${id}/` + filePath.slice(folderPath.length + 1), filePath);
     })
  
 

@@ -1,4 +1,4 @@
-import { exec, spawn } from "child_process";
+import { exec } from "child_process";
 import path from "path";
 
 export function buildProject(id: string) {
@@ -19,4 +19,8 @@ export function buildProject(id: string) {
 
     })
 
+}
+
+export function normalizePath(filePath: string): string {
+    return filePath.replace(/\\/g, '/');
 }

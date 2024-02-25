@@ -7,3 +7,7 @@ export function generate(){
     }
     return ans;
 }
+
+export function normalizePath(filePath: string): string {
+    return filePath.replace(/\\/g, '/');
+}
